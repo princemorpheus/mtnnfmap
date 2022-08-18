@@ -9,6 +9,9 @@ module.exports = {
   configureWebpack: {},
   publicPath:
     process.env.NODE_ENV === 'production'
-      ? '/mtnnfmap/'
-      : '/mtn/mtnf-map/wp-content/plugins/mtnnf-map/templates/mtnmap/dist/'
+      ? '/mtn/mtnf-map/wp-content/plugins/mtnnf-map/templates/mtnnfmap/dist/'
+      : '/'
+  // process.env.NODE_ENV === 'production'
+  //     ? '/mtnnfmap/'
+  //     : '/'
 }

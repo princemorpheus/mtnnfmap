@@ -32,9 +32,9 @@ export default {
     const toggleCenter = () => {
       target.value = target.value == "nigeria" ? "kogi" : "nigeria";
       zoom.value = target.value == "nigeria" ? 6 : 8;
+      map.value.setZoom(zoom.value);
     };
 
-    console.log(document.getElementById("mtnf_map"));
     const loader = new Loader({
       apiKey: "AIzaSyBydrAVgBUHolVBPl12Ioog75Nd4Y8LAio",
       version: "weekly",
@@ -45,15 +45,16 @@ export default {
       center: center.value,
       zoom: zoom.value,
     };
+    const map = ref(null);
 
     loader
       .load()
       .then((google) => {
-        const map = new google.maps.Map(
+        map.value = new google.maps.Map(
           document.getElementById("mtnf_map"),
           mapOptions
         );
-        console.log(map);
+        console.log(map.value);
       })
       .catch((e) => {
         console.log(e);
